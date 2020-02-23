@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="web_recaptcha_v2_res_config_settings_view_form"
+            model="ir.ui.view">
+        <field name="name">res.config.settings.view.recaptcha.form
+        </field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="95"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='website_settings']"
+                   position="after">
+                <h2>Google Recaptcha v2 <span class="fa fa-cog"/></h2>
+                <div class="row mt16 o_settings_container"
+                     id="recaptcha_settings">
+                    <div id="recaptcha_website"
+                         class="col-12 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="display_recaptcha_settings"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label string="Display Recaptcha v2"
+                                   for="display_recaptcha_settings"/>
+                            <div class="text-muted">
+                                Display Recaptcha v2 settings
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16"
+                                     attrs="{'invisible': [('display_recaptcha_settings','=',False)]}">
+                                    <label class="col-lg-3"
+                                           for="recaptcha_website_secret_key"
+                                           string="Secret API Key"
+                                    />
+                                    <field name="recaptcha_website_secret_key"
+                                           attrs="{'required': [('display_recaptcha_settings','=',True)]}"/>
+                                </div>
+                                <div class="row mt16"
+                                     attrs="{'invisible': [('display_recaptcha_settings','=',False)]}">
+                                    <label class="col-lg-3"
+                                           for="recaptcha_website_site_key"
+                                           string="Site API Key"
+                                    />
+                                    <field name="recaptcha_website_site_key"
+                                           attrs="{'required': [('display_recaptcha_settings','=',True)]}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
