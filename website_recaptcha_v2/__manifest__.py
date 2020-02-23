@@ -16,6 +16,6 @@
     'data': [
         'views/res_config_settings.xml'
     ],
-    # 'images': ['images/main_screenshot.png'],
+    'images': ['images/main_screenshot.png'],
     'installable': True,
 }
